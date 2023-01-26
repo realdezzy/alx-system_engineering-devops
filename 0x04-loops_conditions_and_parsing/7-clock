@@ -1,10 +1,19 @@
 #!/usr/bin/env bash
-# This script is displaying "Best School" 10 times
+# This script displays the time for 12 hours and 59 minutes:
+#   display hours from 0 to 12
+#   display minutes from 1 to 59
 
 counter=0
 
-while [ $counter -le 10 ]
+while [ $counter -le 12 ]
 do
-    echo Best School
+    inner=1
+    echo "Hour: $counter"
     ((counter++))
+
+    while [ $inner -le 59 ]
+    do
+        echo $inner
+        ((inner++))
+    done
 done
