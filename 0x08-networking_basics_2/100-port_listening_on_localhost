@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Netcat server
+nc -p 98 -lk

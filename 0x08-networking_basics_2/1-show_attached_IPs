@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Displays all active ip addresses on user
+ifconfig | grep -P -o '(?<=inet )([0-9]{1,3}[\.]){3}[0-9]{1,3}'
