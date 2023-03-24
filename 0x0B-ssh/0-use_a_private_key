@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Login to server via ssh priv-pub-key
+ssh -i ~/.ssh/school ubuntu@18.234.192.132
