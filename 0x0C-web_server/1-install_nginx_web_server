@@ -2,4 +2,5 @@
 # Nginx server setup
 
 sudo apt update -y && apt install nginx -y
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sudo chmod 666 /var/www/html/index.nginx-debian.html
+sudo echo "Hello World!" > /var/www/html/index.nginx-debian.html
