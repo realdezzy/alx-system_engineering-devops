@@ -1,0 +1,6 @@
+Host realdezzy.tech
+    User ubuntu
+    IdentityFile ~/.ssh/school
+    PubkeyAuthentication yes
+    PasswordAuthentication no
+    StrictHostKeyChecking no
