@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#Configure a new Nginx server for 404 error page
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+sudo touch /var/www/html/404.html
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+sudo sed -i '/listen 80 default_server/a error_page 404 /404.html' /etc/nginx/sites-available/default
+sudo service nginx restart
