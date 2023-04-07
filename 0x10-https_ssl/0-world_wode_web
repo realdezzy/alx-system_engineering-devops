@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Dns A record lookup with dig command
+# Checking the checker awk test
+
+arr=("www" "lb-01" "web-01" "web-02")
+if [ -z $2 ]
+then
+	for item in "${arr[@]}"
+	do
+		echo "The subdomain $item is a A record and \
+points to $( dig $item.$1 +short)"
+	done
+else
+	echo "The subdomain $2 is a A record and points to $(dig $2.$1 +short)"
+fi
