@@ -2,14 +2,23 @@
 # Dns A record lookup with dig command
 # Checking the checker awk test
 
-arr=("www" "lb-01" "web-01" "web-02")
-if [ -z $2 ]
-then
-	for item in "${arr[@]}"
-	do
-		echo "The subdomain $item is a A record and \
-points to $( dig $item.$1 +short)"
-	done
-else
-	echo "The subdomain $2 is a A record and points to $(dig $2.$1 +short)"
+all_subs=( "www" "lb-01" "web-01" "web-02" )
+
+execDig () {
+    subdomain=$1
+    domain=$2
+
+    dig "$subdomain.$domain" | grep -A1 'ANSWER SECTION:' | tail -1 | awk -v s="$subdomain" 'BEGIN { FS = " " } ; { print "The subdomain " s " is a " $4 " record and points to " $5 }'
+}
+
+if [ $# -eq 1 ]; then
+    domain="$1"
+    for i in "${all_subs[@]}"
+    do
+	execDig "$i" "$domain"
+    done
+elif [ $# -eq 2 ]; then
+    domain="$1"
+    subdomain="$2"
+    execDig "$subdomain" "$domain"
 fi
