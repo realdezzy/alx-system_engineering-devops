@@ -7,5 +7,6 @@ file {'/var/www/html/index.html':
 
 # Restart apache
 exec {'Apache restart':
-        command => 'sudo service apache2 restart'
+        command => 'sudo service apache2 restart',
+        path    => ['/usr/bin', '/usr/sbin',],
 }
