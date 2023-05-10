@@ -5,11 +5,11 @@ import requests
 
 
 def top_ten(subreddit: str):
-        """ Hot post title """
-        count = requests.get("https://www.reddit.com/r/{}/top.json?limit=10"
-                        .format(subreddit))
-        obj = count.json()
-        children = obj["data"]["children"]
+    """ Hot post title """
+    count = requests.get("https://www.reddit.com/r/{}/top.json?limit=10"
+                         .format(subreddit))
+    obj = count.json()
+    children = obj["data"]["children"]
 
-        for i in len(children):
-                print(i["data"]["title"])
+    for i in children:
+        print(i["data"]["title"])

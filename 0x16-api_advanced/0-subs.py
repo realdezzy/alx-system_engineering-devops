@@ -5,10 +5,9 @@ import requests
 
 
 def number_of_subscribers(subreddit: str):
-        """ Subreddit subscribers count """
-        count = requests.get("https://www.reddit.com/r/{}/about.json"
-                        .format(subreddit))
-        obj = count.json()
-        subscribers = obj["data"]["subscribers"]
-        return subscribers
-
+    """ Subreddit subscribers count """
+    count = requests.get("https://www.reddit.com/r/{}/about.json"
+                         .format(subreddit))
+    obj = count.json()
+    subscribers = obj["data"]["subscribers"]
+    return subscribers
